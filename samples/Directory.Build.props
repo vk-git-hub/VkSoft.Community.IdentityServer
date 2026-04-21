@@ -14,10 +14,10 @@
 	<SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="OmarBaruzzo.IdentityServer8" Version="$(IdentityServerVersion)" />
-	<PackageVersion Include="OmarBaruzzo.IdentityServer8.Security" Version="$(IdentityServerVersion)" />
-	<PackageVersion Include="OmarBaruzzo.IdentityServer8.AspNetIdentity" Version="$(IdentityServerVersion)" />
-    <PackageVersion Include="OmarBaruzzo.IdentityServer8.EntityFramework" Version="$(IdentityServerVersion)" />
+    <PackageVersion Include="VkSoft.Community.IdentityServer10" Version="$(IdentityServerVersion)" />
+	<PackageVersion Include="VkSoft.Community.IdentityServer10.Security" Version="$(IdentityServerVersion)" />
+	<PackageVersion Include="VkSoft.Community.IdentityServer10.AspNetIdentity" Version="$(IdentityServerVersion)" />
+    <PackageVersion Include="VkSoft.Community.IdentityServer10.EntityFramework" Version="$(IdentityServerVersion)" />
   </ItemGroup> 
   <ItemGroup>
     <PackageReference Include="IdentityModel.OidcClient" />

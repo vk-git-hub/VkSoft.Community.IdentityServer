@@ -7,4 +7,4 @@ Historically this package was named `IdentityServer8.EntityFramework` and target
 ## Issues
 
 For issues related to this package, please use the IdentityServer10 issue tracker:  
-<https://github.com/omarbaruzzo/IdentityServer10/issues>
+<https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/issues>

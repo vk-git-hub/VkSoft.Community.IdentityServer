@@ -61,8 +61,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = 'IdentityServer8'
-copyright = '2024 OmarBaruzzo, Omar Baruzzo'
-author = 'Omar Baruzzo'
+copyright = '2026 VkSoft.Community'
+author = 'VkSoft'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -283,7 +283,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'IdentityServer8.tex', 'IdentityServer8 Documentation',
-     'OmarBaruzzo, Omar Baruzzo', 'manual'),
+     'Vk.Soft', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

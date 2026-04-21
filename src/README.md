@@ -3,14 +3,14 @@
 This `src` folder contains the main server, storage and support projects for **IdentityServer10**, an independently maintained evolution of the original IdentityServer4/IdentityServer8 codebase, updated to run on **.NET 10**.
 
 For the top‑level project overview, see the root `README.md` or the GitHub repository:  
-<https://github.com/omarbaruzzo/IdentityServer10>
+<https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/>
 
 ---
 
 ## (Historical) Identity Server 8 update
 This section documents the original .NET 8 revival of the IdentityServer4 and IdentityServer4 Admin UI for OpenID Connect (OIDC) and OAuth, which was archived when .NET Core 3.1 reached end of support.
 
-The latest version of the historical IdentityServer8 line is **8.0.4**. It contains [hundreds of security and bug fixes](https://github.com/omarbaruzzo/IdentityServer10/blob/master/docs/CHANGELOG.md) from the original IdentityServer4 project.
+The latest version of the historical IdentityServer8 line is **8.0.4**. It contains [hundreds of security and bug fixes](https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/blob/master/docs/CHANGELOG.md) from the original IdentityServer4 project.
 
 It is recommend you update all previous version, 4 or 8, to the latest version to ensure you have the latest security updates. 
 

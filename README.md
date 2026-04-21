@@ -10,7 +10,7 @@ This project started as a technical fork of the community project **IdentityServ
 - **MySQL / MariaDB:** [Pomelo.EntityFrameworkCore.MySql](https://github.com/PomeloFoundation/Pomelo.EntityFrameworkCore.MySql) **9.0.0** for Entity Framework Core–backed persistence (compatible with EF Core 10).
 
 **Current stable version:** `10.0.1`  
-**GitHub repository:** <https://github.com/omarbaruzzo/IdentityServer10>
+**GitHub repository:** <https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/>
 
 IdentityServer10 is **not** an official project of Duende, IdentityServer4 or IdentityServer8. It is a separate, protocol‑compatible implementation (OpenID Connect + OAuth 2.0) maintained independently.
 
@@ -22,7 +22,7 @@ If you are looking for the original IdentityServer8 project, please see:
 ## (Historical) Identity Server 8 update
 This section documents the original .NET 8 revival of the IdentityServer4 and IdentityServer4 Admin UI for OpenID Connect (OIDC) and OAuth, which was archived when .NET Core 3.1 reached end of support.
 
-The latest version of the historical IdentityServer8 line is **8.0.4**. It contains [hundreds of security and bug fixes](https://github.com/omarbaruzzo/IdentityServer10/blob/master/docs/CHANGELOG.md) from the original IdentityServer4 project.
+The latest version of the historical IdentityServer8 line is **8.0.4**. It contains [hundreds of security and bug fixes](https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/blob/master/docs/CHANGELOG.md) from the original IdentityServer4 project.
 
 It is recommend you update all previous version, 4 or 8, to the latest version to ensure you have the latest security updates. 
 
@@ -32,7 +32,7 @@ For **IdentityServer8** (historical) you can still use:
 - [Support](https://identityserver8.readthedocs.io/en/latest/into/support.html)
 - [Gitter Chat](https://app.gitter.im/#/room/#identityserver8:gitter.im)
 
-For **IdentityServer10** core packages, search NuGet for `OmarBaruzzo.IdentityServer10`.  
+For **IdentityServer10** core packages, search NuGet for `VkSoft.Community.IdentityServer10`.  
 For **Admin UI**, you can continue to use the existing IdentityServer8-based admin packages (see the IdentityServer8 project for details).
 
 All new development in the archived repository has moved to a paid commercial version in the [Duende Software](https://github.com/duendesoftware) organization. 
@@ -70,14 +70,14 @@ In the meantime, NuGet packages will be published to the [IdentityServer8 NuGet 
 
 ## Nuget Packages
 
-### IdentityServer10 core packages (NuGet, maintained by Omar Baruzzo)
+### IdentityServer10 core packages (NuGet, maintained by VkSoft)
 |Package||
 | ------------- | ------------- |
-|[OmarBaruzzo.IdentityServer10](https://www.nuget.org/packages/OmarBaruzzo.IdentityServer10)|Core IdentityServer10 server package for ASP.NET Core on .NET 10.|
-|[OmarBaruzzo.IdentityServer10.Storage](https://www.nuget.org/packages/OmarBaruzzo.IdentityServer10.Storage)|Shared storage abstractions and helpers used by IdentityServer10.|
-|[OmarBaruzzo.IdentityServer10.EntityFramework](https://www.nuget.org/packages/OmarBaruzzo.IdentityServer10.EntityFramework)|Entity Framework integration for IdentityServer10 configuration data.|
-|[OmarBaruzzo.IdentityServer10.EntityFramework.Storage](https://www.nuget.org/packages/OmarBaruzzo.IdentityServer10.EntityFramework.Storage)|Entity Framework storage entities and context for IdentityServer10.|
-|[OmarBaruzzo.IdentityServer10.AspNetIdentity](https://www.nuget.org/packages/OmarBaruzzo.IdentityServer10.AspNetIdentity)|ASP.NET Core Identity integration support for IdentityServer10.|
+|[VkSoft.Community.IdentityServer10](https://www.nuget.org/packages/VkSoft.Community.IdentityServer10)|Core IdentityServer10 server package for ASP.NET Core on .NET 10.|
+|[VkSoft.Community.IdentityServer10.Storage](https://www.nuget.org/packages/VkSoft.Community.IdentityServer10.Storage)|Shared storage abstractions and helpers used by IdentityServer10.|
+|[VkSoft.Community.IdentityServer10.EntityFramework](https://www.nuget.org/packages/VkSoft.Community.IdentityServer10.EntityFramework)|Entity Framework integration for IdentityServer10 configuration data.|
+|[VkSoft.Community.IdentityServer10.EntityFramework.Storage](https://www.nuget.org/packages/VkSoft.Community.IdentityServer10.EntityFramework.Storage)|Entity Framework storage entities and context for IdentityServer10.|
+|[VkSoft.Community.IdentityServer10.AspNetIdentity](https://www.nuget.org/packages/VkSoft.Community.IdentityServer10.AspNetIdentity)|ASP.NET Core Identity integration support for IdentityServer10.|
 
 ### Identity Server 8 (historical, maintained by HigginsSoft)
 |Package||

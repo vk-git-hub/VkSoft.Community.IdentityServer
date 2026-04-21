@@ -18,7 +18,7 @@ First stable release of **IdentityServer10**, an independently maintained fork o
   - the historical IdentityServer8 line (8.x),
   - from the new IdentityServer10 line (10.0.0).
 - Cleaned up repository links and issue trackers so that:
-  - all **current** issues/packages refer to `https://github.com/omarbaruzzo/IdentityServer10`,
+  - all **current** issues/packages refer to `https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/`,
   - all references to IdentityServer8 correctly point to the original upstream project `alexhiggins732/IdentityServer8`.
 
 ### Security

@@ -9,7 +9,7 @@
         <!--always bump /version.json and /docs/conf.py to <Version>X.Y.Z</Version>to keep nuget, build and document versions in sync-->
         <Version>10.0.1</Version>
 		<IdentityServerVersion>10.0.1</IdentityServerVersion>
-        <PackageId>OmarBaruzzo.$(MSBuildProjectName)</PackageId>
+        <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
         <Title>$(MSBuildProjectName)</Title>
         <ImplicitUsings>enable</ImplicitUsings>
 
@@ -23,15 +23,15 @@
 
 
         <Description>OpenID Connect and OAuth 2.0 Framework for ASP.NET Core</Description>
-        <Copyright>Copyright 2026 Omar Baruzzo. Omar Baruzzo</Copyright>
-        <Authors>Omar Baruzzo, Omar Baruzzo, Brock Allen, Dominick Baier</Authors>
+        <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+        <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
   
         <PackageTags>OAuth2 OAuth 2.0 OpenID Connect Security Identity IdentityServer Admin IdentityServer10 OpenIDConnect </PackageTags>
 
 
-        <PackageProjectUrl>https://github.com/omarbaruzzo/IdentityServer10</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/</PackageProjectUrl>
         <RepositoryType>git</RepositoryType>
-        <PackageReleaseNotes>https://github.com/omarbaruzzo/IdentityServer10/releases</PackageReleaseNotes>
+        <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/releases</PackageReleaseNotes>
 
         <!-- Declare that the Repository URL can be published to NuSpec -->
         <PublishRepositoryUrl>true</PublishRepositoryUrl>

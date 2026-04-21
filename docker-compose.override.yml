@@ -13,7 +13,7 @@ services:
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
 
-  OmarBaruzzo.identityserver4.sts.identity:
+  VkSoft.identityserver4.sts.identity:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     volumes:
