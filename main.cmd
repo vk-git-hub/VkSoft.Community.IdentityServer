@@ -1,0 +1,1 @@
+start ./src/IdentityServer10/IdentityServer10.sln

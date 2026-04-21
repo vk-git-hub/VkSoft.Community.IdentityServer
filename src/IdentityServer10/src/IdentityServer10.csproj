@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">True</ContinuousIntegrationBuild>
+        <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
+        <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+        <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+        <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="IdentityModel" />
+        <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\Security\IdentityServer10.Security\IdentityServer10.Security.csproj" />
+        <ProjectReference Include="$(MSBuildThisFileDirectory)..\..\Storage\src\IdentityServer10.Storage.csproj" />
+    </ItemGroup>
+</Project>

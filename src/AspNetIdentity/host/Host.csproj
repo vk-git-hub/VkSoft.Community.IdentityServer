@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+    <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+    <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+    <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+        
+    <ProjectReference Include="..\src\IdentityServer10.AspNetIdentity.csproj" />
+  </ItemGroup>
+
+</Project>

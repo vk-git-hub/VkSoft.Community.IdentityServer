@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+    <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+    <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+    <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="FluentAssertions" />
+    <PackageReference Include="coverlet.collector" GeneratePathProperty="true">
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\IdentityServer10.EntityFramework.csproj" />
+  </ItemGroup>
+  
+  
+
+</Project>

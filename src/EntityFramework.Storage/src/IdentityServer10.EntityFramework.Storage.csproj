@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Description>EntityFramework persistence layer for IdentityServer10</Description>
+        <IsPackable>true</IsPackable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <ContinuousIntegrationBuild Condition="'$(TF_BUILD)' == 'true'">True</ContinuousIntegrationBuild>
+        <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">True</ContinuousIntegrationBuild>
+        <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+        <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+        <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+        <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+        <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AutoMapper" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\Security\IdentityServer10.Security\IdentityServer10.Security.csproj" />
+        <ProjectReference Include="..\..\Storage\src\IdentityServer10.Storage.csproj" />
+    </ItemGroup>
+
+</Project>

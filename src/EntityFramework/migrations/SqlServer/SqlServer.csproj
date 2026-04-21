@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+
+
+  <PropertyGroup>
+    <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+    <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+    <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\IdentityServer10.EntityFramework.csproj" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" />
+  </ItemGroup>
+
+</Project>

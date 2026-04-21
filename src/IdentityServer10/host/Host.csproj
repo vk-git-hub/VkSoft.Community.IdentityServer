@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+
+
+  <PropertyGroup>
+    <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+    <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+    <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+    <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+    <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+  </PropertyGroup>
+
+
+
+  <ItemGroup>
+    <Content Remove="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" />
+    
+    <PackageReference Include="Serilog.AspNetCore" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="All" />
+        
+    <ProjectReference Include="$(MSBuildThisFileDirectory)..\src\IdentityServer10.csproj" />
+  </ItemGroup>
+</Project>

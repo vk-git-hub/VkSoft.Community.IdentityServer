@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <Copyright>Copyright 2026 VkSoft.Community</Copyright>
+    <PackageReleaseNotes>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer/releases</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/vk-git-hub/VkSoft.Community.IdentitytServer</PackageProjectUrl>
+    <Authors>VkSoft.Community, Brock Allen, Dominick Baier</Authors>
+    <PackageId>VkSoft.Community.$(MSBuildProjectName)</PackageId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\host\Host.csproj" />
+    <ProjectReference Include="..\..\src\IdentityServer10.AspNetIdentity.csproj" />
+  </ItemGroup>
+
+</Project>
