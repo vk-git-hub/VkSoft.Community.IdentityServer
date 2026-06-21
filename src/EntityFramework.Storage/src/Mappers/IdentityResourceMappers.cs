@@ -10,41 +10,54 @@
  copies or substantial portions of the Software.
 */
 
-using IdentityServer10.EntityFramework.Entities;
+using IdentityServer10.Models;
 
 namespace IdentityServer10.EntityFramework.Mappers
 {
-    /// <summary>
-    /// Extension methods to map to/from entity/model for identity resources.
-    /// </summary>
     public static class IdentityResourceMappers
     {
-        static IdentityResourceMappers()
+        public static Models.IdentityResource ToModel(this Entities.IdentityResource entity)
         {
-            Mapper = new MapperConfiguration(cfg => cfg.AddProfile<IdentityResourceMapperProfile>())
-                .CreateMapper();
+            if (entity == null) return null;
+
+            return new Models.IdentityResource
+            {
+                Enabled = entity.Enabled,
+                Name = entity.Name,
+                DisplayName = entity.DisplayName,
+                Description = entity.Description,
+                Required = entity.Required,
+                Emphasize = entity.Emphasize,
+                ShowInDiscoveryDocument = entity.ShowInDiscoveryDocument,
+                UserClaims = entity.UserClaims == null
+                    ? new HashSet<string>()
+                    : new HashSet<string>(entity.UserClaims.Select(x => x.Type)),
+                Properties = entity.Properties == null
+                    ? new Dictionary<string, string>()
+                    : entity.Properties.ToDictionary(x => x.Key, x => x.Value)
+            };
         }
 
-        internal static IMapper Mapper { get; }
-
-        /// <summary>
-        /// Maps an entity to a model.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <returns></returns>
-        public static Models.IdentityResource ToModel(this IdentityResource entity)
+        public static Entities.IdentityResource ToEntity(this Models.IdentityResource model)
         {
-            return entity == null ? null : Mapper.Map<Models.IdentityResource>(entity);
-        }
+            if (model == null) return null;
 
-        /// <summary>
-        /// Maps a model to an entity.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <returns></returns>
-        public static IdentityResource ToEntity(this Models.IdentityResource model)
-        {
-            return model == null ? null : Mapper.Map<IdentityResource>(model);
+            return new Entities.IdentityResource
+            {
+                Enabled = model.Enabled,
+                Name = model.Name,
+                DisplayName = model.DisplayName,
+                Description = model.Description,
+                Required = model.Required,
+                Emphasize = model.Emphasize,
+                ShowInDiscoveryDocument = model.ShowInDiscoveryDocument,
+                UserClaims = model.UserClaims?
+                    .Select(x => new Entities.IdentityResourceClaim { Type = x })
+                    .ToList(),
+                Properties = model.Properties?
+                    .Select(x => new Entities.IdentityResourceProperty { Key = x.Key, Value = x.Value })
+                    .ToList()
+            };
         }
     }
 }

@@ -21,7 +21,8 @@
     <PackageVersion Include="AspNetCore.HealthChecks.OpenIdConnectServer" Version="$(AspnetVersion)" />
     <PackageVersion Include="AspNetCore.HealthChecks.SqlServer" Version="$(AspnetVersion)" />
     <PackageVersion Include="AspNetCore.HealthChecks.UI.Client" Version="$(AspnetVersion)" />
-    <PackageVersion Include="AutoMapper" Version="13.0.1 " />
+    <PackageVersion Include="Duende.IdentityModel" Version="8.1.0" />
+
     <PackageVersion Include="Azure.Extensions.AspNetCore.DataProtection.Keys" Version="1.1.0" />
     <PackageVersion Include="Azure.Identity" Version="1.14.2" />
     <PackageVersion Include="Azure.Security.KeyVault.Certificates" Version="4.2.0" />
@@ -63,16 +64,17 @@
     <PackageVersion Include="Microsoft.AspNetCore.Components.Web" Version="$(AspnetMinorVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.DataProtection.EntityFrameworkCore" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="$(AspnetVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.UI" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="$(AspnetVersion)" />
-    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.3.10" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Mvc.Testing" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="$(AspnetVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.TestHost" Version="$(AspnetMinorVersion)" />
     <PackageVersion Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageVersion Include="Microsoft.AspNetCore.WebUtilities" Version="10.0.8" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EfVersion)">
       <PrivateAssets>all</PrivateAssets>
@@ -165,11 +167,12 @@
     <PackageVersion Include="System.ServiceModel.Primitives" Version="$(AspnetVersion)" />
     <PackageVersion Include="WireMock.Net" Version="1.5.39" />
     <PackageVersion Include="xunit" Version="2.6.4" />
-    <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.6">
+    <PackageVersion Include="xunit.runner.visualstudio" Version="3.1.5">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageVersion>
     <PackageVersion Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="10.0.100" PrivateAssets="All" />
     <PackageVersion Include="Microsoft.SourceLink.GitHub" Version="10.0.102" PrivateAssets="All" />
+    <PackageVersion Include="xunit.v3" Version="3.2.2" />
   </ItemGroup>
 </Project>

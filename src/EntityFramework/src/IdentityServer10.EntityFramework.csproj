@@ -17,6 +17,12 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <PackageReference Include="Duende.IdentityModel" />
+      <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" />
+    </ItemGroup>
+
+    <ItemGroup>
         <ProjectReference Include="..\..\EntityFramework.Storage\src\IdentityServer10.EntityFramework.Storage.csproj" />
         <ProjectReference Include="..\..\IdentityServer10\src\IdentityServer10.csproj" />
     </ItemGroup>

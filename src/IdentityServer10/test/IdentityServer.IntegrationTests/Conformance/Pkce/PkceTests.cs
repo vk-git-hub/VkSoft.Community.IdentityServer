@@ -10,18 +10,19 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel;
+using Duende.IdentityModel.Client;
+using FluentAssertions;
+using IdentityServer.IntegrationTests.Common;
+using IdentityServer10;
+using IdentityServer10.Models;
+using IdentityServer10.Test;
+using Microsoft.AspNetCore.WebUtilities;
 using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
-using IdentityModel;
-using IdentityModel.Client;
-using IdentityServer.IntegrationTests.Common;
-using IdentityServer10;
-using IdentityServer10.Models;
-using IdentityServer10.Test;
 using Xunit;
 
 namespace IdentityServer.IntegrationTests.Conformance.Pkce;
@@ -542,7 +543,7 @@ public class PkceTests
     {
         var codeVerifierBytes = Encoding.ASCII.GetBytes(codeVerifier);
         var hashedBytes = codeVerifierBytes.Sha256();
-        var transformedCodeVerifier = Base64Url.Encode(hashedBytes);
+        var transformedCodeVerifier = WebEncoders.Base64UrlEncode(hashedBytes);
 
         return transformedCodeVerifier;
     }

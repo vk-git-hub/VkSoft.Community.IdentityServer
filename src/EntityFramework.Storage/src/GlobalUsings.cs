@@ -10,8 +10,7 @@
  copies or substantial portions of the Software.
 */
 
-global using AutoMapper;
-global using IdentityModel;
+global using Duende.IdentityModel;
 global using IdentityServer10.EntityFramework.DbContexts;
 global using IdentityServer10.EntityFramework.Extensions;
 global using IdentityServer10.EntityFramework.Interfaces;

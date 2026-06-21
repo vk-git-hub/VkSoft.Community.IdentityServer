@@ -26,7 +26,7 @@ public class ClientStoreTests : IntegrationTest<ClientStoreTests, ConfigurationD
 {
     public ClientStoreTests(DatabaseProviderFixture<ConfigurationDbContext> fixture) : base(fixture)
     {
-        foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<ConfigurationDbContext>) y)).ToList())
+        foreach (var options in TestDatabaseProviders.Select(row => row.Data).ToList())
         {
             using (var context = new ConfigurationDbContext(options, StoreOptions))
             {
@@ -149,7 +149,7 @@ public class ClientStoreTests : IntegrationTest<ClientStoreTests, ConfigurationD
             var store = new ClientStore(context, FakeLogger<ClientStore>.Create());
 
             const int timeout = 5000;
-            var task = Task.Run(() => store.FindClientByIdAsync(testClient.ClientId));
+            var task = store.FindClientByIdAsync(testClient.ClientId);
 
             if (await Task.WhenAny(task, Task.Delay(timeout)) == task)
             {
@@ -158,7 +158,7 @@ public class ClientStoreTests : IntegrationTest<ClientStoreTests, ConfigurationD
             }
             else
             {
-                throw new TestTimeoutException(timeout);
+                throw new TimeoutException($"Test timed out after {timeout}ms");
             }
         }
     }

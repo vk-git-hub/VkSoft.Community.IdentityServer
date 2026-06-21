@@ -30,7 +30,7 @@ public static class X509CertificateExtensions
                         
         var values = new Dictionary<string, string>
         {
-            { "x5t#S256", Base64Url.Encode(hash) }
+            { "x5t#S256", WebEncoders.Base64UrlEncode(hash) }
         };
 
         return JsonSerializer.Serialize(values);

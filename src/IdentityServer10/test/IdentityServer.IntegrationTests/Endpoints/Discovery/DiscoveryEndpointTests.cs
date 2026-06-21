@@ -11,7 +11,7 @@
 */
 
 using FluentAssertions;
-using IdentityModel.Client;
+using Duende.IdentityModel.Client;
 using IdentityServer.IntegrationTests.Common;
 using IdentityServer10;
 using IdentityServer10.Configuration;

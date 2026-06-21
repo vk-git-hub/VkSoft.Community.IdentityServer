@@ -93,7 +93,7 @@ public class ConsentRequest
                 var bytes = Encoding.UTF8.GetBytes(value);
                 var hash = sha.ComputeHash(bytes);
 
-                return Base64Url.Encode(hash);
+                return WebEncoders.Base64UrlEncode(hash);
             }
         }
     }

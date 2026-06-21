@@ -11,6 +11,7 @@
 */
 
 namespace IdentityServer10.Extensions;
+using Microsoft.AspNetCore.WebUtilities;
 
 /// <summary>
 /// Extensions for AuthenticationProperties
@@ -103,7 +104,7 @@ public static class AuthenticationPropertiesExtensions
     {
         if (value.IsPresent())
         {
-            var bytes = Base64Url.Decode(value);
+            var bytes = WebEncoders.Base64UrlDecode(value);
             value = Encoding.UTF8.GetString(bytes);
             return ObjectSerializer.FromString<string[]>(value);
         }
@@ -117,7 +118,7 @@ public static class AuthenticationPropertiesExtensions
         {
             var value = ObjectSerializer.ToString(list);
             var bytes = Encoding.UTF8.GetBytes(value);
-            value = Base64Url.Encode(bytes);
+            value = WebEncoders.Base64UrlEncode(bytes);
             return value;
         }
 

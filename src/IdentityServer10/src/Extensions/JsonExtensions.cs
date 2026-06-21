@@ -26,6 +26,14 @@ internal static partial class JsonExtensions
     }
 
     [DebuggerStepThrough]
+    public static T ToObject<T>(this JsonElement? element, JsonSerializerOptions options = null)
+    {
+        if (element == null)
+            throw new ArgumentNullException(nameof(element));
+        return element.Value.ToObject<T>(options);
+    }
+
+    [DebuggerStepThrough]
     public static T ToObject<T>(this JsonDocument document, JsonSerializerOptions options = null)
     {
         if (document == null)

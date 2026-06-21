@@ -10,17 +10,18 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel;
+using FluentAssertions;
+using IdentityServer.IntegrationTests.Common;
+using IdentityServer10.Models;
+using IdentityServer10.Services;
+using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
-using IdentityModel;
-using IdentityServer.IntegrationTests.Common;
-using IdentityServer10.Models;
-using IdentityServer10.Services;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace IdentityServer.IntegrationTests.Extensibility;
@@ -79,12 +80,12 @@ public class CustomProfileServiceTests
         response.StatusCode.Should().Be(HttpStatusCode.Redirect);
         response.Headers.Location.ToString().Should().StartWith("https://client/callback");
 
-        var authorization = new IdentityModel.Client.AuthorizeResponse(response.Headers.Location.ToString());
+        var authorization = new Duende.IdentityModel.Client.AuthorizeResponse(response.Headers.Location.ToString());
         authorization.IsError.Should().BeFalse();
         authorization.IdentityToken.Should().NotBeNull();
 
         var payload = authorization.IdentityToken.Split('.')[1];
-        var json = Encoding.UTF8.GetString(Base64Url.Decode(payload));
+        var json = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(payload));
         var obj = JObject.Parse(json);
 
         obj.GetValue("foo").Should().NotBeNull();

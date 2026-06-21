@@ -11,6 +11,7 @@
 */
 
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.WebUtilities;
 
 namespace IdentityServer10.Configuration;
 
@@ -77,7 +78,7 @@ public static class CryptoHelper
             var leftPart = new byte[size];
             Array.Copy(hash, leftPart, size);
 
-            return Base64Url.Encode(leftPart);
+            return WebEncoders.Base64UrlEncode(leftPart);
         }
     }
 

@@ -15,7 +15,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="IdentityModel" />
+        <PackageReference Include="Duende.IdentityModel" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" />
+        <PackageReference Include="Microsoft.AspNetCore.WebUtilities" />
         <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" />
     </ItemGroup>

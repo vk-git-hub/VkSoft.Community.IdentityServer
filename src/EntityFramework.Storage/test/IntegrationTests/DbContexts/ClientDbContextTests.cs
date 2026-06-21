@@ -23,7 +23,7 @@ public class ClientDbContextTests : IntegrationTest<ClientDbContextTests, Config
 {
     public ClientDbContextTests(DatabaseProviderFixture<ConfigurationDbContext> fixture) : base(fixture)
     {
-        foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<ConfigurationDbContext>)y)).ToList())
+        foreach (var options in TestDatabaseProviders.Select(row => row.Data).ToList())
         {
             using (var context = new ConfigurationDbContext(options, StoreOptions))
                 context.Database.EnsureCreated();

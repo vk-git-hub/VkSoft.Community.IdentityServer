@@ -10,7 +10,7 @@
  copies or substantial portions of the Software.
 */
 
-using IdentityModel;
+using Duende.IdentityModel;
 using IdentityServer10.EntityFramework.DbContexts;
 using IdentityServer10.EntityFramework.Mappers;
 using IdentityServer10.EntityFramework.Options;
@@ -25,7 +25,7 @@ public class ScopeStoreTests : IntegrationTest<ScopeStoreTests, ConfigurationDbC
 {
     public ScopeStoreTests(DatabaseProviderFixture<ConfigurationDbContext> fixture) : base(fixture)
     {
-        foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<ConfigurationDbContext>)y)).ToList())
+        foreach (var options in TestDatabaseProviders.Select(row => row.Data).ToList())
         {
             using (var context = new ConfigurationDbContext(options, StoreOptions))
                 context.Database.EnsureCreated();

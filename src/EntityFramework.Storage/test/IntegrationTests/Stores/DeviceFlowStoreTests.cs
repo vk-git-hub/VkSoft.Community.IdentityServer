@@ -11,7 +11,7 @@
 */
 
 using FluentAssertions;
-using IdentityModel;
+using Duende.IdentityModel;
 using IdentityServer10.EntityFramework.DbContexts;
 using IdentityServer10.EntityFramework.Entities;
 using IdentityServer10.EntityFramework.Options;
@@ -31,7 +31,7 @@ public class DeviceFlowStoreTests : IntegrationTest<DeviceFlowStoreTests, Persis
 
     public DeviceFlowStoreTests(DatabaseProviderFixture<PersistedGrantDbContext> fixture) : base(fixture)
     {
-        foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<PersistedGrantDbContext>)y)).ToList())
+        foreach (var options in TestDatabaseProviders.Select(row => row.Data).ToList())
         {
             using (var context = new PersistedGrantDbContext(options, StoreOptions))
                 context.Database.EnsureCreated();

@@ -10,41 +10,85 @@
  copies or substantial portions of the Software.
 */
 
-using IdentityServer10.EntityFramework.Entities;
+using IdentityServer10.Models;
 
 namespace IdentityServer10.EntityFramework.Mappers
 {
-    /// <summary>
-    /// Extension methods to map to/from entity/model for API resources.
-    /// </summary>
     public static class ApiResourceMappers
     {
-        static ApiResourceMappers()
+        public static Models.ApiResource ToModel(this Entities.ApiResource entity)
         {
-            Mapper = new MapperConfiguration(cfg => cfg.AddProfile<ApiResourceMapperProfile>())
-                .CreateMapper();
+            if (entity == null) return null;
+
+            return new Models.ApiResource
+            {
+                Enabled = entity.Enabled,
+                Name = entity.Name,
+                DisplayName = entity.DisplayName,
+                Description = entity.Description,
+                ShowInDiscoveryDocument = entity.ShowInDiscoveryDocument,
+                AllowedAccessTokenSigningAlgorithms = AllowedSigningAlgorithmsConverter.ConvertToCollection(entity.AllowedAccessTokenSigningAlgorithms),
+                ApiSecrets = entity.Secrets?
+                    .Select(ToModel)
+                    .ToHashSet() ?? new HashSet<Secret>(),
+                Scopes = entity.Scopes == null
+                    ? new HashSet<string>()
+                    : new HashSet<string>(entity.Scopes.Select(x => x.Scope)),
+                UserClaims = entity.UserClaims == null
+                    ? new HashSet<string>()
+                    : new HashSet<string>(entity.UserClaims.Select(x => x.Type)),
+                Properties = entity.Properties == null
+                    ? new Dictionary<string, string>()
+                    : entity.Properties.ToDictionary(x => x.Key, x => x.Value)
+            };
         }
 
-        internal static IMapper Mapper { get; }
-
-        /// <summary>
-        /// Maps an entity to a model.
-        /// </summary>
-        /// <param name="entity">The entity.</param>
-        /// <returns></returns>
-        public static Models.ApiResource ToModel(this ApiResource entity)
+        public static Entities.ApiResource ToEntity(this Models.ApiResource model)
         {
-            return entity == null ? null : Mapper.Map<Models.ApiResource>(entity);
+            if (model == null) return null;
+
+            return new Entities.ApiResource
+            {
+                Enabled = model.Enabled,
+                Name = model.Name,
+                DisplayName = model.DisplayName,
+                Description = model.Description,
+                ShowInDiscoveryDocument = model.ShowInDiscoveryDocument,
+                AllowedAccessTokenSigningAlgorithms = AllowedSigningAlgorithmsConverter.ConvertToString(model.AllowedAccessTokenSigningAlgorithms),
+                Secrets = model.ApiSecrets?
+                    .Select(ToEntity)
+                    .ToList(),
+                Scopes = model.Scopes?
+                    .Select(x => new Entities.ApiResourceScope { Scope = x })
+                    .ToList(),
+                UserClaims = model.UserClaims?
+                    .Select(x => new Entities.ApiResourceClaim { Type = x })
+                    .ToList(),
+                Properties = model.Properties?
+                    .Select(x => new Entities.ApiResourceProperty { Key = x.Key, Value = x.Value })
+                    .ToList()
+            };
         }
 
-        /// <summary>
-        /// Maps a model to an entity.
-        /// </summary>
-        /// <param name="model">The model.</param>
-        /// <returns></returns>
-        public static ApiResource ToEntity(this Models.ApiResource model)
+        private static Models.Secret ToModel(Entities.ApiResourceSecret src)
         {
-            return model == null ? null : Mapper.Map<ApiResource>(model);
+            var dest = new Models.Secret();
+            dest.Description = src.Description;
+            dest.Value = src.Value;
+            dest.Expiration = src.Expiration;
+            dest.Type = src.Type ?? "SharedSecret";
+            return dest;
+        }
+
+        private static Entities.ApiResourceSecret ToEntity(Models.Secret src)
+        {
+            return new Entities.ApiResourceSecret
+            {
+                Description = src.Description,
+                Value = src.Value,
+                Expiration = src.Expiration,
+                Type = src.Type
+            };
         }
     }
 }

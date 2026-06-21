@@ -26,7 +26,7 @@ public class PersistedGrantStoreTests : IntegrationTest<PersistedGrantStoreTests
 {
     public PersistedGrantStoreTests(DatabaseProviderFixture<PersistedGrantDbContext> fixture) : base(fixture)
     {
-        foreach (var options in TestDatabaseProviders.SelectMany(x => x.Select(y => (DbContextOptions<PersistedGrantDbContext>)y)).ToList())
+        foreach (var options in TestDatabaseProviders.Select(row => row.Data).ToList())
         {
             using (var context = new PersistedGrantDbContext(options, StoreOptions))
                 context.Database.EnsureCreated();

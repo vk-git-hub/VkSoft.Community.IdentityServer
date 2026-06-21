@@ -10,20 +10,21 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel;
+using Duende.IdentityModel.Client;
+using FluentAssertions;
+using IdentityServer.IntegrationTests.Clients.Setup;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.WebUtilities;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using FluentAssertions;
-using IdentityModel;
-using IdentityModel.Client;
-using IdentityServer.IntegrationTests.Clients.Setup;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.TestHost;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using Xunit;
 
 namespace IdentityServer.IntegrationTests.Clients;
@@ -203,7 +204,7 @@ public class UserInfoEndpointClient
         });
 
         //roles = ((JArray)userInfo.Json["role"]).Select(x => x.ToString()).ToArray();
-        roles = userInfo.Json.TryGetStringArray("role").ToArray();
+        roles = userInfo.Json.Value.TryGetStringArray("role").ToArray();
         roles.Length.Should().Be(2);
         roles.Should().Contain("Geek");
         roles.Should().Contain("Developer");
@@ -213,7 +214,7 @@ public class UserInfoEndpointClient
     {
         var token = response.AccessToken.Split('.').Skip(1).Take(1).First();
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(
-            Encoding.UTF8.GetString(Base64Url.Decode(token)));
+            Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token)));
 
         return dictionary;
     }

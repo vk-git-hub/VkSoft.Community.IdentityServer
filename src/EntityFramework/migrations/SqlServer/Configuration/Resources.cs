@@ -10,7 +10,7 @@
  copies or substantial portions of the Software.
 */
 
-using IdentityModel;
+using Duende.IdentityModel;
 using IdentityServer10.Models;
 using System.Collections.Generic;
 using static IdentityServer10.IdentityServerConstants;

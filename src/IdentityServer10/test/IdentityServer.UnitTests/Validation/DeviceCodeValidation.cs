@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
-using IdentityModel;
+using Duende.IdentityModel;
 using IdentityServer.UnitTests.Validation.Setup;
 using IdentityServer10;
 using IdentityServer10.Models;

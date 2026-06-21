@@ -1,5 +1,5 @@
 /*
- Copyright (c) 2026 VkSoft.Community - https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/ 
+ Copyright (c) 2026 VkSoft.Community - https://github.com/vk-git-hub/VkSoft.Community.IdentityServer/
 
  Copyright (c) 2018, Brock Allen & Dominick Baier. All rights reserved.
 
@@ -18,12 +18,6 @@ namespace IdentityServer10.EntityFramework.UnitTests.Mappers;
 
 public class IdentityResourcesMappersTests
 {
-    [Fact]
-    public void IdentityResourceAutomapperConfigurationIsValid()
-    {
-        IdentityResourceMappers.Mapper.ConfigurationProvider.AssertConfigurationIsValid();
-    }
-
     [Fact]
     public void CanMapIdentityResources()
     {

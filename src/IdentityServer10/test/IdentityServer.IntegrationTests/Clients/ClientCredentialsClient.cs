@@ -10,12 +10,13 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel;
+using Duende.IdentityModel.Client;
 using FluentAssertions;
-using IdentityModel;
-using IdentityModel.Client;
 using IdentityServer.IntegrationTests.Clients.Setup;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.WebUtilities;
 using System.Net;
 using System.Text;
 using System.Text.Json;
@@ -482,7 +483,7 @@ public class ClientCredentialsClient
     {
         var token = response.AccessToken.Split('.').Skip(1).Take(1).First();
         var dictionary = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(
-            Encoding.UTF8.GetString(Base64Url.Decode(token)));
+            Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token)));
 
         return dictionary;
     }

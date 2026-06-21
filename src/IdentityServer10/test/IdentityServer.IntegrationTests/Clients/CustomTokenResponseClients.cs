@@ -10,13 +10,13 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel.Client;
 using FluentAssertions;
-using IdentityModel;
-using IdentityModel.Client;
 using IdentityServer.IntegrationTests.Clients.Setup;
 using IdentityServer10.Extensions;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
@@ -296,7 +296,7 @@ public class CustomTokenResponseClients
         return GetFields(response.Json);
     }
 
-    private Dictionary<string, JsonElement> GetFields(JsonElement json)
+    private Dictionary<string, JsonElement> GetFields(JsonElement? json)
     {
         return json.ToObject<Dictionary<string, JsonElement>>();
     }
@@ -305,7 +305,7 @@ public class CustomTokenResponseClients
     {
         var token = response.AccessToken.Split('.').Skip(1).Take(1).First();
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(
-            Encoding.UTF8.GetString(Base64Url.Decode(token)));
+            Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token)));
 
         return dictionary;
     }

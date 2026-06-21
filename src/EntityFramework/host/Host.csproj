@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\src\IdentityServer10.EntityFramework.csproj" />
+
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Certificate" />
     
     <PackageReference Include="Serilog.AspNetCore" />

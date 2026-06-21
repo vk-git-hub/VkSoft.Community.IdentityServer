@@ -10,12 +10,13 @@
  copies or substantial portions of the Software.
 */
 
+using Duende.IdentityModel;
+using Duende.IdentityModel.Client;
 using FluentAssertions;
-using IdentityModel;
-using IdentityModel.Client;
 using IdentityServer.IntegrationTests.Clients.Setup;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using Microsoft.AspNetCore.WebUtilities;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Net;
@@ -273,11 +274,11 @@ public class ResourceOwnerClient
     }
 
 
-    private static Dictionary<string, object> GetPayload(IdentityModel.Client.TokenResponse response)
+    private static Dictionary<string, object> GetPayload(Duende.IdentityModel.Client.TokenResponse response)
     {
         var token = response.AccessToken.Split('.').Skip(1).Take(1).First();
         var dictionary = JsonConvert.DeserializeObject<Dictionary<string, object>>(
-            Encoding.UTF8.GetString(Base64Url.Decode(token)));
+            Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(token)));
 
         return dictionary;
     }

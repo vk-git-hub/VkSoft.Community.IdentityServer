@@ -11,7 +11,7 @@
 */
 
 using FluentAssertions;
-using IdentityModel.Client;
+using Duende.IdentityModel.Client;
 using IdentityServer.IntegrationTests.Clients.Setup;
 using IdentityServer10.Extensions;
 using Microsoft.AspNetCore.Hosting;
@@ -119,7 +119,7 @@ public class CustomTokenRequestValidatorClient
         ValidateCustomFields(response);
     }
 
-     private Dictionary<string, JsonElement> GetFields(JsonElement json)
+     private Dictionary<string, JsonElement> GetFields(JsonElement? json)
     {
         return json.ToObject<Dictionary<string, JsonElement>>();
     }

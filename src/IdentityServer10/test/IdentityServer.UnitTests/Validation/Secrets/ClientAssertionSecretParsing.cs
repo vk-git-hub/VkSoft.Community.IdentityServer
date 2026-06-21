@@ -37,7 +37,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void EmptyContext()
+        public async Task EmptyContext()
         {
             var context = new DefaultHttpContext();
             context.Request.Body = new MemoryStream();
@@ -49,7 +49,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void Valid_ClientAssertion()
+        public async Task Valid_ClientAssertion()
         {
             var context = new DefaultHttpContext();
 
@@ -70,7 +70,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void Missing_ClientAssertionType()
+        public async Task Missing_ClientAssertionType()
         {
             var context = new DefaultHttpContext();
 
@@ -85,7 +85,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void Missing_ClientAssertion()
+        public async Task Missing_ClientAssertion()
         {
             var context = new DefaultHttpContext();
 
@@ -100,7 +100,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void Malformed_PostBody()
+        public async Task Malformed_PostBody()
         {
             var context = new DefaultHttpContext();
             var body = "malformed";
@@ -114,7 +114,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void ClientId_TooLong()
+        public async Task ClientId_TooLong()
         {
             var context = new DefaultHttpContext();
 
@@ -130,7 +130,7 @@ namespace IdentityServer.UnitTests.Validation.Secrets
         }
 
         [Fact]
-        public async void ClientAssertion_TooLong()
+        public async Task ClientAssertion_TooLong()
         {
             var context = new DefaultHttpContext();
 
